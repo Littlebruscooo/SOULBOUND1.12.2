@@ -29,4 +29,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: soulbound-1.12.2-jar
-          path: build/libs/*.jar
+          path: build/**/*.jar
+
