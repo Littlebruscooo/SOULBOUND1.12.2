@@ -13,12 +13,13 @@ jobs:
 
       - name: Extract source zip
         run: |
-          unzip -o "YOUR_FILE.zip" -d extracted
+          unzip -o *.zip -d extracted
           if [ -d extracted/src ]; then
             cp -rn extracted/* .
           else
             cp -rn extracted/*/* .
           fi
+
 
       - name: Set up Java 8
         uses: actions/setup-java@v4
