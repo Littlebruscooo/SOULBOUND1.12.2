@@ -19,7 +19,9 @@ jobs:
           else
             cp -rn extracted/*/* .
           fi
-
+          sed -i 's/getTabIconItem()/createIcon()/g' src/main/java/com/pixelcite/turnbattle/ModItems.java
+          sed -i 's/setUnlocalizedName(/setTranslationKey(/g' src/main/java/com/pixelcite/turnbattle/SoulItem.java
+          sed -i 's/getResourcePath()/getPath()/g' src/main/java/com/pixelcite/turnbattle/client/GuiBattle.java
 
       - name: Set up Java 8
         uses: actions/setup-java@v4
@@ -39,4 +41,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: soulbound-1.12.2-jar
-          path: build/**/*.jar
+          path: build/libs/*.jar
